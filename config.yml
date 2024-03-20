@@ -1,0 +1,225 @@
+common:
+  project_name: "HSL4"
+  raw_data_path: "data/raw/"
+  data_path: "/data/0shared/caiderun/HSL-data/"
+  wandb_dir: "/data/0shared/caiderun/exp_logs/wandb_logs/"
+
+  train_prop: 0.5
+  valid_prop: 0.25
+  add_self_loop: True
+  exclude_self: False
+
+  num_features: 0
+  num_classes: 0
+  runs: 10
+  epochs: 700
+  early_stop: 80
+  aggregate: "mean"
+  normtype: "all_one"
+  normalization: "ln"
+  GPR: False
+  PMA: True
+
+20newsW100:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 64
+    Classifier_num_layers: 2
+    MLP_hidden: 512
+    MLP_num_layers: 2
+    dropout: 0.7
+    heads: 8
+    lr: 0.001
+    wd: 0
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 2
+    p2MLP_hidden: 512
+    p2sample_add_p: 0
+    p2sample_type: 'topk_add' #'topk_add' 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 0.3
+    p2temperature: 0.4
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.001
+    contrast_type: unsup
+    p1init_rate: 0
+    p2init_rate: 3
+NTU2012:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 256
+    Classifier_num_layers: 2
+    MLP_hidden: 512
+    MLP_num_layers: 1
+    dropout: 0.5
+    heads: 4
+    lr: 0.0001
+    wd: 0.001
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 2
+    p2MLP_hidden: 256
+    p2sample_add_p: 0.01
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 0.3
+    p2temperature: 0.1
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.00001
+    contrast_type: unsup
+    p1init_rate: 1
+    p2init_rate: 1
+citeseer:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 128
+    Classifier_num_layers: 2
+    MLP_hidden: 256
+    MLP_num_layers: 2
+    dropout: 0.5
+    heads: 4
+    lr: 0.001
+    wd: 0
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 1
+    p2MLP_hidden: 512
+    p2sample_add_p: 0.01
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 1.7
+    p2temperature: 0.1
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.00001
+    contrast_type: unsup
+    p1init_rate: -2
+    p2init_rate: 2
+coauthor_cora:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 64
+    Classifier_num_layers: 2
+    MLP_hidden: 128
+    MLP_num_layers: 2
+    dropout: 0.5
+    heads: 2
+    lr: 0.0001
+    wd: 0.00001
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 2
+    p2MLP_hidden: 256
+    p2sample_add_p: 0.02
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 0.8
+    p2temperature: 0.4
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.00001
+    contrast_type: unsup
+    p1init_rate: 1
+    p2init_rate: 2
+coauthor_dblp:
+  HSL:
+    All_num_layers: 2
+    Classifier_hidden: 64
+    Classifier_num_layers: 1
+    MLP_hidden: 128
+    MLP_num_layers: 2
+    dropout: 0.5
+    heads: 8
+    lr: 0.01
+    wd: 1.0e-4
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 1
+    p2MLP_hidden: 128
+    p2sample_add_p: 0
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 0.6
+    p2temperature: 1.5
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.00001
+    contrast_type: unsup
+    p1init_rate: 2
+    p2init_rate: 3
+cora:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 512
+    Classifier_num_layers: 2
+    MLP_hidden: 128
+    MLP_num_layers: 1
+    dropout: 0.5
+    heads: 4
+    lr: 0.001
+    wd: 0.00001
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 2
+    p2MLP_hidden: 512
+    p2sample_add_p: 0.02
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 1.6
+    p2temperature: 1.8
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.000001
+    contrast_type: unsup
+    p1init_rate: 0
+    p2init_rate: 1
+zoo:
+  HSL:
+    All_num_layers: 1
+    Classifier_hidden: 512
+    Classifier_num_layers: 2
+    MLP_hidden: 512
+    MLP_num_layers: 1
+    dropout: 0.5
+    heads: 4
+    lr: 0.0001
+    wd: 0
+    p1sample: True
+    p1useMLP: False
+    p2sample: True
+    cos_head: 4
+    p2MLP_num_layers: 1
+    p2MLP_hidden: 512
+    p2sample_add_p: 0
+    p2sample_type: 'topk_add' # 'topk_all' 'random'
+    discrete_sample: "gumbel" #"gumbel", "hard_concrete"
+    p1temperature: 1.2
+    p2temperature: 1.7
+    hc_beta: 0.6
+    L0lambda: 1
+    contrast: False
+    lambda_contrast: 0.00001
+    contrast_type: unsup
+    p1init_rate: 1
+    p2init_rate: 1
